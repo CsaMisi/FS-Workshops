@@ -6,8 +6,24 @@
     <title>Developers View</title>
     <link rel="stylesheet" href="../root/style.css">
 </head>
-<body onload="loadJson()">
-    <div id="calculations">
+<body>
+    <table class="table  table-hover" id="table-target">
+        <thead class="table-dark">
+            <tr>
+                <!--Script will load-->
+            </tr>
+        </thead>
+        <tbody>
+            <!--Script will load-->
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <input type="button" name="show-calculations" id="calcBtn" class="btn btn-primary
+        btn-lg " value="Show Queries" onclick="toggleQueryVisibility()">
+    </div>
+
+    <div hidden id="calculations">
         <p>
             Mennyi az átlagéletkor?
             <span id="Q1"></span>
@@ -38,18 +54,8 @@
         </p>
     </div>
 
-    <input type="button" id="load-table" onclick="loadTable()" value="Load Table">
 
-    <table class="table  table-hover" id="table-target">
-        <thead class="table-dark">
-            <tr>
-                <!--Script will load-->
-            </tr>
-        </thead>
-        <tbody>
-            <!--Script will load-->
-        </tbody>
-    </table>
+  
     
     
     <script src="app.js"></script>

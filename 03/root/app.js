@@ -45,14 +45,82 @@ function loadTable(){
 
     let tableBody = '';
     console.log(data);
-    data.developers.forEach(item =>{
+    data.developers.forEach(item => {
         let row = '<tr>';
-        Object.values(item).forEach(v =>{
-            row += `<td>${v}</td>`;
-        })
+        Object.entries(item).forEach(([key, value]) => {
+            console.log("key: ", key, "value: ", value);
+            if (key === 'salary') {
+                let badge = '';
+                if(value < 400000)
+                    badge = 'badge bg-danger' //badge-{color} refuses to work
+                else if(value > 400000 && value < 700000)
+                    badge = 'badge bg-warning'
+                else badge = 'badge bg-success'
+                let temp = `<span class="${badge}">${value} HUF</span>`;
+                console.log("span temp: ", temp)
+                value = temp;
+            }
+            if(key === 'image'){
+                let temp = `<img src="${value}" width="30px" height="30px" class="rounded-circle">`;
+                value = temp;
+            }
+            if(key === 'email'){
+                let temp = `<a href="mailto: ${value}">${value}</a>`;
+                value = temp;
+            }
+            row += `<td>${value}</td>`;
+        });
         row += '</tr>';
         tableBody += row;
     });
     //$('#table-target tbody').html(tableBody); for some reason undifined
     document.querySelector('#table-target tbody').innerHTML = tableBody;
+}
+
+function calculateAverageAge() {
+    if (!data || !data.developers || data.developers.length === 0) {
+        return "No data available";
+    }
+    const totalAge = data.developers.reduce((sum, dev) => sum + dev.age, 0);
+    const averageAge = totalAge / data.developers.length;
+    return `Average Age: ${averageAge.toFixed(2)}`;
+}
+
+
+
+function loadQueries(){
+    if(data === null){
+        console.log("Data error");
+        return;
+    }
+    //avg
+    console.log(data.developers["age"])
+    document.querySelector('#Q1').innerHTML = calculateAverageAge();
+
+    
+    
+
+}
+
+function toggleQueryVisibility(){
+    let calcs = document.querySelector('#calculations');
+    let calcBtn = document.querySelector('#calcBtn');
+    if(calcs.hidden){
+        calcs.hidden = false;
+        calcBtn.value = 'Hide Queries'
+    } else {
+        calcs.hidden = true
+        calcBtn.value = 'Show Queries'
+    }
+}
+document.getElementById("calcBtn").addEventListener("click", function () {
+    loadQueries();
+}, { once: true });
+
+
+
+window.addEventListener("load", Init, true); 
+async function Init() {
+    await loadJson();
+    loadTable();
 }
