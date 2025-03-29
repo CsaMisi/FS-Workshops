@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapcsolat - Fiktív Magánegyetem</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <header>
+        <h1>Kapcsolat</h1>
+    </header>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Főoldal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../pages/services.html">Szolgáltatások</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/subjects.html">Tárgyak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/students.html">Hallgatók</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/merch.html">Merch-shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/contact.html">Kapcsolat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/problem.html">Probléma bejelentés</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <section>
+            <h2>Kapcsolatfelvétel</h2>
+            
+            <div class="container mt-4">
+                <form action="#" method="post" class="p-4 border rounded bg-light">
+                    <!-- Teljes név -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Teljes név:</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Kérjük adja meg a teljes nevét" required>
+                    </div>
+            
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email cím:</label>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="pelda@email.hu" required>
+                        </div>
+                    </div>
+            
+                    <!-- Radio buttons -->
+                    <div class="mb-3">
+                        <p class="form-label">Ön:</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="student" name="person_type" value="student">
+                            <label class="form-check-label" for="student">Hallgató</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="teacher" name="person_type" value="teacher">
+                            <label class="form-check-label" for="teacher">Oktató</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="external" name="person_type" value="external">
+                            <label class="form-check-label" for="external">Külsős személy</label>
+                        </div>
+                    </div>
+            
+                    <!-- Üzenet tárgya (floating label) -->
+                    <div class="form-floating mb-3">
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Az üzenet rövid tárgya" required>
+                        <label for="subject">Üzenet tárgya</label>
+                    </div>
+            
+                    <!-- Üzenet szövege (floating label) -->
+                    <div class="form-floating mb-3">
+                        <textarea id="message" name="message" class="form-control" placeholder="Kérjük írja le részletesen miben segíthetünk" required style="height: 150px;"></textarea>
+                        <label for="message">Üzenet szövege</label>
+                    </div>
+            
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Küldés</button>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <h3>Elérhetőségünk</h3>
+            <hr>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d173623.44011029937!2d19.048603399999998!3d47.49753625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741c334d1d4cfc9%3A0x400c4290c1e1160!2sBudapest!5e0!3m2!1shu!2shu!4v1711040689791!5m2!1shu!2shu" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probléma bejelentés - Fiktív Magánegyetem</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <header>
+        <h1>Probléma bejelentés</h1>
+    </header>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Főoldal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../pages/services.html">Szolgáltatások</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/subjects.html">Tárgyak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/students.html">Hallgatók</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/merch.html">Merch-shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/contact.html">Kapcsolat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/problem.html">Probléma bejelentés</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Probléma bejelentés</h2>
+            
+            <form action="#" method="post">
+                <div>
+                    <label for="email">Email cím:</label>
+                    <input type="email" id="email" name="email" placeholder="pelda@email.hu" required>
+                </div>
+                
+                <div>
+                    <label for="notification">Kérek értesítést:</label>
+                    <input type="radio" id="notification_yes" name="notification" value="yes">
+                    <label for="notification_yes">Igen</label>
+                    
+                    <input type="radio" id="notification_no" name="notification" value="no">
+                    <label for="notification_no">Nem</label>
+                </div>
+                
+                <div>
+                    <label for="problem_type">Bejelentés típusa:</label>
+                    <select id="problem_type" name="problem_type" required>
+                        <option value="">Válasszon...</option>
+                        <option value="general">Általános bejelentés</option>
+                        <option value="positive">Pozitív véleményt kívánok tenni</option>
+                        <option value="complaint">Panaszt kívánok tenni</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="subject">Üzenet tárgya:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Az üzenet rövid tárgya" required>
+                </div>
+                
+                <div>
+                    <label for="message">Üzenet szövege:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Kérjük írja le részletesen a problémáját vagy észrevételét" required></textarea>
+                </div>
+                
+                <div>
+                    <button type="submit">Küldés</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

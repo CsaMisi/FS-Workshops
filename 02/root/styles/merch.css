@@ -1,0 +1,28 @@
+:root{
+    --accent-green: rgba(50, 168, 64, 0.72)
+}
+
+#add-to-cart{
+    background-color: var(--accent-green);
+    font-weight: bold;
+}
+
+#add-to-cart:hover{
+    background-color: aquamarine;
+}
+
+input{
+    max-width: 50px;
+    min-width: 30px;
+    letter-spacing: 0.2rem;
+    border-radius: 0.5em;
+}
+
+section img{
+    border-radius: 0.5em;
+    border: 3px solid lightslategray;
+}
+
+section img:hover{
+    filter: grayscale(100%);
+}

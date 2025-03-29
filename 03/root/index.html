@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers View</title>
+    <link rel="stylesheet" href="../root/style.css">
+</head>
+<body onload="loadJson()">
+    <div id="calculations">
+        <p>
+            Mennyi az átlagéletkor?
+            <span id="Q1"></span>
+        </p>
+        <p>
+            Mennyi az átlagfizetés a frontendesek között?
+            <span id="Q2"></span>
+        </p>
+        <p>
+            Ki ért a legtöbb mindenhez?
+            <span id="Q3"></span>
+        </p>
+        <p>
+            Melyik cégből dolgozik a legtöbb ember?
+            <span id="Q4"></span>
+        </p>
+        <p>
+            Ki a legfiatalabb fejlesztő és mennyit keres ő?
+            <span id="Q5"></span>
+        </p>
+        <p>
+            Mekkora a különbség fizetésben a legfiatalabb és legidősebb fejlesztő között?
+            <span id="Q6"></span>
+        </p>
+        <p>
+            Munkakörönként csoportosítva mennyi az átlagfizetés?
+            <span id="Q7"></span>
+        </p>
+    </div>
+
+    <input type="button" id="load-table" onclick="loadTable()" value="Load Table">
+
+    <div id="table-target">
+        <table class="table">
+            <thead class="thead-dark">
+
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
