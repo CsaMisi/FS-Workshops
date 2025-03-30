@@ -18,3 +18,49 @@ body {
     width: 40%;
     margin: 1em auto 1.5em auto;
 }
+
+
+#calculations {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#calculations > p {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#calculations > p > span {
+    font-weight: bold;
+    text-align: right;
+}
+
+#calculations > p:last-child {
+    grid-column: 1 / span 2;
+    display: block;
+    text-align: center;
+}
+
+#calculations > p:last-child > span{
+    font-weight: normal;
+    font-size: medium;
+
+}
+#calculations > p:last-child:not(span){
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+#calculations > p:last-child > span > div{
+    margin-top: 10px;
+}
+
+#calculations > p:last-child > span > div > div > div > div{ /*fuj, ez borzalmas xd*/
+    margin-bottom: 1em;
+}

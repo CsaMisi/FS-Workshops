@@ -15,7 +15,7 @@ async function loadJson() {
         clearTimeout(timeoutId);
         console.log("Status: ", response.status);
         data = await response.json();
-        console.log(data);
+        //console.log(data);
         setTimeout(()=> controller.abort(), 5000);
     } catch(error){
         if(error === 'AbortError')
@@ -31,12 +31,12 @@ function loadTable(){
         console.log("Data was not loaded!");
         return;
     }
-    console.log (data.developers.length);
+    //console.log (data.developers.length);
 
     let headerRow = '';
     if(data.developers.length > 0){
         const headers = Object.keys(data.developers[0]);
-        console.log("headers: ", headers)
+        //console.log("headers: ", headers)
         headers.forEach(h=>{
             headerRow += `<th>${h.capitalize()}</th>`;
         });
@@ -44,11 +44,9 @@ function loadTable(){
     }
 
     let tableBody = '';
-    console.log(data);
     data.developers.forEach(item => {
         let row = '<tr>';
         Object.entries(item).forEach(([key, value]) => {
-            console.log("key: ", key, "value: ", value);
             if (key === 'salary') {
                 let badge = '';
                 if(value < 400000)
@@ -57,7 +55,6 @@ function loadTable(){
                     badge = 'badge bg-warning'
                 else badge = 'badge bg-success'
                 let temp = `<span class="${badge}">${value} HUF</span>`;
-                console.log("span temp: ", temp)
                 value = temp;
             }
             if(key === 'image'){
@@ -155,29 +152,58 @@ function calculateDiffOldestYoungest(){
         return dev.age < min.age ? {name: dev.name, salary: dev.salary} : min
     }).salary
 
-    console.log(minAge)
+
 
     let maxAge = data.developers.reduce((max, dev) => {
         return dev.age > max.age ? {name: dev.name, salary: dev.salary} : max
     }).salary
-    console.log(maxAge)
+
 
     return `A külömbség ${maxAge >= minAge ? (maxAge-minAge) : (minAge-maxAge)}`
 }
 
-function averagePayPerJob(){ //TODO
+function averagePayPerJob(){
     let jobMap = new Map();
+    let jobCountMap = new Map();
     for(let i = 0; i < data.developers.length;i++){
         if(jobMap.has(data.developers[i].job)){
             jobMap.set(`${data.developers[i].job}`
                     , jobMap.get(`${data.developers[i].job}`)+data.developers[i].salary
-            )
+            );
+            jobCountMap.set(`${data.developers[i].job}`
+                , jobCountMap.get(`${data.developers[i].job}`)+1
+            );
         } else {
             jobMap.set(`${data.developers[i].job}`, data.developers[i].salary);
+            jobCountMap.set(`${data.developers[i].job}`,1);
         }
     }
 
-}
+    //console.log(jobMap)
+    //console.log(jobCountMap)
+
+    let outp = '<div class="container"><div class="row" id="job-avg-row">';
+    let outpLeft = '<div class="col-lg-6 col-md-12 text-end">'
+    let outpRight = '<div class="col-lg-6 col-md-12 text-start">'
+ 
+    jobMap.forEach((key, value)=>{
+        //console.log(value);
+        //console.log("key: ", key);
+        jobMap.set(`${value}`, key / jobCountMap.get(`${value}`));
+        outpLeft += `<div>${value} : </div>`
+        outpRight += `<div>${key} </div>`
+    })
+
+    outpLeft+= '</div>';
+    outpRight+= '</div>';
+    outp+= outpLeft;
+    outp+= outpRight;
+    outp+= '</div></div>'
+    //console.log(jobMap)
+
+    return outp;
+    
+}   
 
 function loadQueries(){
     if(data === null){
@@ -204,10 +230,10 @@ function toggleQueryVisibility(){
     let calcBtn = document.querySelector('#calcBtn');
     if(calcs.hidden){
         calcs.hidden = false;
-        calcBtn.value = 'Hide Queries'
+        calcBtn.value = 'Lekérdezés elrejtése'
     } else {
         calcs.hidden = true
-        calcBtn.value = 'Show Queries'
+        calcBtn.value = 'Lekérdezés mutatása'
     }
 }
 
