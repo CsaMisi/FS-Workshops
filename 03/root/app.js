@@ -16,7 +16,6 @@ async function loadJson() {
         console.log("Status: ", response.status);
         data = await response.json();
         //console.log(data);
-        setTimeout(()=> controller.abort(), 5000);
     } catch(error){
         if(error === 'AbortError')
             console.log("Time out");
@@ -83,7 +82,7 @@ function calculateAverageAge() {
     return `Átlag életkor: ${averageAge.toFixed(2)}`;
 }
 
-function calculateAveragePayForFrontend(){
+function calculateAveragePay(){
     if (!data || !data.developers || data.developers.length === 0) {
         return "No data available";
     }
@@ -159,7 +158,7 @@ function calculateDiffOldestYoungest(){
     }).salary
 
 
-    return `A külömbség ${maxAge >= minAge ? (maxAge-minAge) : (minAge-maxAge)}`
+    return `A külömbség ${maxAge >= minAge ? (maxAge-minAge) : (minAge-maxAge)} HUF`
 }
 
 function averagePayPerJob(){
@@ -211,18 +210,18 @@ function loadQueries(){
         return;
     }
     //avg age
-    document.querySelector('#Q1').innerHTML = calculateAverageAge();
+    document.getElementById('Q1').innerHTML = calculateAverageAge();
     //avg frontend pay
-    document.querySelector('#Q2').innerHTML = calculateAveragePayForFrontend();
+    document.getElementById('Q2').innerHTML = calculateAveragePay();
     //most skills
-    document.querySelector('#Q3').innerHTML = calculateMultitasker();
+    document.getElementById('Q3').innerHTML = calculateMultitasker();
     //most companies
-    document.querySelector('#Q4').innerHTML = calculateCompany();
+    document.getElementById('Q4').innerHTML = calculateCompany();
     //youngest
-    document.querySelector('#Q5').innerHTML = calculateMinAge();
+    document.getElementById('Q5').innerHTML = calculateMinAge();
     //diff between youngest and oldest
-    document.querySelector('#Q6').innerHTML = calculateDiffOldestYoungest();
-    document.querySelector('#Q7').innerHTML = averagePayPerJob();
+    document.getElementById('Q6').innerHTML = calculateDiffOldestYoungest();
+    document.getElementById('Q7').innerHTML = averagePayPerJob();
 }
 
 function toggleQueryVisibility(){
